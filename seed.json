@@ -1,0 +1,128 @@
+{
+ "admin": {
+  "username": "devopsitinfra@bitsathy.ac.in",
+  "password": "Devsprint@2026"
+ },
+ "teams": [
+  {
+   "name": "SkyStack",
+   "password": "bitsathyb"
+  },
+  {
+   "name": "BITZAPP",
+   "password": "Pras@2006"
+  },
+  {
+   "name": "Codeloggers",
+   "password": "Megarasi@16"
+  },
+  {
+   "name": "Vantablack",
+   "password": "SRIRAMMOKEETH"
+  },
+  {
+   "name": "Stack Overflowers",
+   "password": "yashwin79"
+  },
+  {
+   "name": "Team Outlaws",
+   "password": "GDA1234"
+  },
+  {
+   "name": "Eclipse",
+   "password": "Pishana@070807"
+  },
+  {
+   "name": "Byte buster",
+   "password": "niva@2008"
+  },
+  {
+   "name": "Challengers",
+   "password": "Challengers"
+  },
+  {
+   "name": "Deploy Dynasty",
+   "password": "12345678"
+  },
+  {
+   "name": "Pypirates",
+   "password": "hashu@123"
+  },
+  {
+   "name": "NESUX",
+   "password": "bitsathy01"
+  },
+  {
+   "name": "Team VENOM",
+   "password": "kamal1213"
+  },
+  {
+   "name": "Trio Leveling",
+   "password": "120408"
+  },
+  {
+   "name": "Vision IQ",
+   "password": "bitsathyb"
+  },
+  {
+   "name": "Techx",
+   "password": "kabil2008"
+  },
+  {
+   "name": "Neo Coders",
+   "password": "neo#07"
+  },
+  {
+   "name": "Innosight",
+   "password": "123456"
+  },
+  {
+   "name": "CLOUD RAIDERS",
+   "password": "Mohanapriya2007#"
+  },
+  {
+   "name": "VICTORIUS",
+   "password": "pugal123"
+  },
+  {
+   "name": "Alto",
+   "password": "Hari Prasanna"
+  },
+  {
+   "name": "Vission verse",
+   "password": "vission verse"
+  },
+  {
+   "name": "Byte Blitz",
+   "password": "manojerithen"
+  },
+  {
+   "name": "VisionX",
+   "password": "shobika"
+  },
+  {
+   "name": "Triple-X",
+   "password": "Triple@2025"
+  },
+  {
+   "name": "DEVNEST",
+   "password": "MYSONBRUCE"
+  },
+  {
+   "name": "Team Spirit",
+   "password": "Thendral@123"
+  },
+  {
+   "name": "NUKE",
+   "password": "mohan@25"
+  },
+  {
+   "name": "Rising Stars",
+   "password": "vinu@468"
+  },
+  {
+   "name": "CODEAVENGERS",
+   "password": "KJ9080"
+  }
+ ]
+}

@@ -1,0 +1,343 @@
+{
+ "users": [
+  {
+   "id": "admin",
+   "name": "devopsitinfra@bitsathy.ac.in",
+   "key": "devopsitinfra@bitsathy.ac.in",
+   "role": "admin",
+   "hash": "7f0766ad7e06e1483286938013d2ab93:6d3b940be341d431bb0e4a05f80efbf99561fff74a984d87d3bb5cd57444235e920711980de35393d1927c0e7e89794deed8457a35673469cd6bb0349c6a4ef4"
+  },
+  {
+   "id": "T01",
+   "name": "SkyStack",
+   "key": "skystack",
+   "role": "team",
+   "hash": "feda68f5300a3886b0f3bb7f33208c83:fa92fc6495b415c261aba4681a20ad2ed4f0c3a6eec66dae2cd4b3c5d9cdfac953642c2820678da2fda6019797d7252e682dd1d6a26672129f2ccc39b179ba45"
+  },
+  {
+   "id": "T02",
+   "name": "BITZAPP",
+   "key": "bitzapp",
+   "role": "team",
+   "hash": "46e6df9d5bb8f9fbac61e70c271216d6:f9fde42276f2da9b45a9bd6fb242cc7c1f097cca9560edd1eb623c1af703ea08bae21587e7700b5daf7870bcfad155877f7485ca75ff14683eaad91af75ff1ea"
+  },
+  {
+   "id": "T03",
+   "name": "Codeloggers",
+   "key": "codeloggers",
+   "role": "team",
+   "hash": "336c53357919e690e9e468a60398e901:a42e590e61e8b6678911f2bf8bbddbf0f87b7ea6f1677aa05ce3f42dd49f336f0938ab5981a067b0a78c76e54f38807103fa62234073cba906b09832c43d1633"
+  },
+  {
+   "id": "T04",
+   "name": "Vantablack",
+   "key": "vantablack",
+   "role": "team",
+   "hash": "583aec1ee69d1c8626e827faae665acb:4fa8325c6cbc6ec77de80137bf49bd72034efc650907d475fb9f7855dd547387a1e8a07328d39592e179192bf951d6a0715b00c3eea54b0fd6ebbef05473e2a6"
+  },
+  {
+   "id": "T05",
+   "name": "Stack Overflowers",
+   "key": "stack overflowers",
+   "role": "team",
+   "hash": "05f8f076a7a064ef8db3663e80b686be:c3d4ef3703c7889c7a1bc6377b384fcef6b7db36bbed152b3e45a5f40fba17f73d5290d08813906932b747c558d50d781540a9abb3797aba904f905141f4a35e"
+  },
+  {
+   "id": "T06",
+   "name": "Team Outlaws",
+   "key": "team outlaws",
+   "role": "team",
+   "hash": "64cb74733f90bb0de849fd8bf597f209:ccf975cf35a2f5cd2f7bd4f6317ce8db5b309021060714428699549478e075aa33e19ab7be9bbfa90c697c6c1d8ac8354453cae8b4ff41287fcaed1e25bbc207"
+  },
+  {
+   "id": "T07",
+   "name": "Eclipse",
+   "key": "eclipse",
+   "role": "team",
+   "hash": "05288b6bab13756f8f0d7bd3339a9721:bddb84acd13aad073907db847da3fc10c91eddb91924cc9c2d55e24a0b228b136b091af31e856e1f19bccb056f84d83a6b763f2ac3ba7b44e919e0f97b97fbfb"
+  },
+  {
+   "id": "T08",
+   "name": "Byte buster",
+   "key": "byte buster",
+   "role": "team",
+   "hash": "812a52631639b798b8cf430363061b1e:feb5742fcba585e5c7dd2364d95c847fb3fcebc581038549c4d6791f41feed68f0b066d23dc655534c1f2ef0849377d60e5b8a86b422da3d9ddb4d8201ffc852"
+  },
+  {
+   "id": "T09",
+   "name": "Challengers",
+   "key": "challengers",
+   "role": "team",
+   "hash": "22fa4b036eb96e2092b97059e7a49667:47c2777c5dffbe85970892929c4ab7cc98adaead639b4bf6d11f431b3dc62ffb8516326e1299e0ac2b1b0e5a9d28e186eaeff620f82427e8c695c018b6332b44"
+  },
+  {
+   "id": "T10",
+   "name": "Deploy Dynasty",
+   "key": "deploy dynasty",
+   "role": "team",
+   "hash": "71bea2fbf59da7f89208794987598af6:dae3aa3fc29b0bd16f81e7f895c378744303d9c6744144d610481e371eaa1cf7569b418f0c5da4f805b6796ab4b882225f6867e59e4dc93168c40da082807e0f"
+  },
+  {
+   "id": "T11",
+   "name": "Pypirates",
+   "key": "pypirates",
+   "role": "team",
+   "hash": "2df90ae378f08daa4fcc8af3ea60ac16:2679b1b80a85448373c198182b7c2d36c7e0c004340295c5fe126adc60aee53cf5dfb87a9c74f2d572f6e457e54122e24faf172850e6815d074f16b333c28528"
+  },
+  {
+   "id": "T12",
+   "name": "NESUX",
+   "key": "nesux",
+   "role": "team",
+   "hash": "343aac05419df580cb19ccbf43d093e0:a26c418308f2eff0350be24f27edaeaf1379052eaeb1dbb5ecc82ae2265b76bbb157fb11a73d3a8bb526003bc7be8c0ca2d6ea4263355f4ad64071a0d80565d3"
+  },
+  {
+   "id": "T13",
+   "name": "Team VENOM",
+   "key": "team venom",
+   "role": "team",
+   "hash": "0582bc15310c14ea6aaf167abd3af823:da9ee3ce114a0cc632abd74db98860bdd85c544eef9f814a37d99bf875595054df3fd155f15375b7882b218732b1df80164180c8c8a4b8c714fca718844075bf"
+  },
+  {
+   "id": "T14",
+   "name": "Trio Leveling",
+   "key": "trio leveling",
+   "role": "team",
+   "hash": "0520ca73cf0df059ff47913e13305dd6:fdef71acab1b363b1306b6094ce23b8d9c87debb9eca00b365ad85cf4677d3adaa03e01a2f663339b3b48130b008b551e4baf7c6d66afdab69be313dbbb5daf5"
+  },
+  {
+   "id": "T15",
+   "name": "Vision IQ",
+   "key": "vision iq",
+   "role": "team",
+   "hash": "cb1da721241fd25e9188cc617a0ef010:7e3536ff79d713201b6144a4e7b7255f7616d315bfce2ee5e051fb88a9d2919897018c5405c291f52a6e152cc44db17b89a108f56376b4940576ed0d1df84aef"
+  },
+  {
+   "id": "T16",
+   "name": "Techx",
+   "key": "techx",
+   "role": "team",
+   "hash": "f0f0d6187bcf14992fcb1096c92e7ee3:83fadab8efe35497623fb10f9ea2dbb903f08c9aa0a52976d5213609d47e7d2227e2c8ea5de42d739f48adcded005d6a55239bdcd049171554b3554d684c2703"
+  },
+  {
+   "id": "T17",
+   "name": "Neo Coders",
+   "key": "neo coders",
+   "role": "team",
+   "hash": "cbfac964bf39b51a6aeb3fce59e1a72a:a7f90fc71dbf7e35613a53949e6e81df9f00c65bb781ac4c755b83c9b6acd1fb05fe2484f2a3da53bc69e28ce397a6d377d8eafea2b008dec5ec4aeb4bc36c3d"
+  },
+  {
+   "id": "T18",
+   "name": "Innosight",
+   "key": "innosight",
+   "role": "team",
+   "hash": "6fceba2d2eed2360d52208f81dee5a28:094c00d603bfab3158baff0dc31348d2a15bd9dccebf3edb042496e06bfce9f42bb62fd1f92a9caab4e2a464f28c349c29fda96cdfdcd697f818fc82ea9add2f"
+  },
+  {
+   "id": "T19",
+   "name": "CLOUD RAIDERS",
+   "key": "cloud raiders",
+   "role": "team",
+   "hash": "2cad11cb0e7087ea5b025fa866a1ac4d:95ef483f0c3031c2aa5d179ee664fdeac34209a2c67767b226d16cb31ef7f63aea480c2f7b2fb889f5c12c529ad7655906042415a119179b24349135e445af5c"
+  },
+  {
+   "id": "T20",
+   "name": "VICTORIUS",
+   "key": "victorius",
+   "role": "team",
+   "hash": "c6eed6674ead77fc7b695e05a6bbb25d:ce541893dca205308c642eae29998afe2f0f8bc1a535a7e51894e5b7d97358e6a1f5ce635b97572d3541354183a07505fa894347fadbd05841478529a8b90a74"
+  },
+  {
+   "id": "T21",
+   "name": "Alto",
+   "key": "alto",
+   "role": "team",
+   "hash": "597f87f0d5156e695061ce700b9adfa3:9db37dcf623b2a997282863ed1a249429c21ca70a678df7be0d310ae1fb4a0cc53ab99297ba85b94f3df465464270e92d67aaaa215c9369eaf75fefef96961fe"
+  },
+  {
+   "id": "T22",
+   "name": "Vission verse",
+   "key": "vission verse",
+   "role": "team",
+   "hash": "f74839c46249cdf6508e630d0c37f3f8:53d27f162326b2c3be0bee34f50ed1bbbcafb10e14827d0156155c51070022841bb9d65f11f97fa792f08507607c9970a642a06a4d19b8b78a41ccf4214cdd78"
+  },
+  {
+   "id": "T23",
+   "name": "Byte Blitz",
+   "key": "byte blitz",
+   "role": "team",
+   "hash": "1783ba21e0a66ab9ecc4829171b2b2fc:6888530b68f39135f577cfc92a2c231eabc71cf1c11d35cc16a9e28485b3a04962fc417abb9bf41dcb7a12ed5d7259b39b8f0181df5294d36d7de6d8c1383398"
+  },
+  {
+   "id": "T24",
+   "name": "VisionX",
+   "key": "visionx",
+   "role": "team",
+   "hash": "1967356bdf1e7f77d86ee0edc3140ab4:b9719d81c0d939e206647a9731a75576717f0aa7b4ef6b14aec0c9459414314c1078e8bf3c5b7052aab8622d9ce1caaeba7432c975d6eadde746ca70bbb421b0"
+  },
+  {
+   "id": "T25",
+   "name": "Triple-X",
+   "key": "triple-x",
+   "role": "team",
+   "hash": "57b2f16c53b4faa3069498e111b168ee:a900a0ea1ed89a3e12d69ca02e82967b06047287a70a934aa724852184f1b626cfb6fbcb8d8d669135aab013ed67cb1041f488227361d25d19476d39fa81cd31"
+  },
+  {
+   "id": "T26",
+   "name": "DEVNEST",
+   "key": "devnest",
+   "role": "team",
+   "hash": "dfd05a1175c6affce189c65d821ef5a6:9408b4f003c89855dcf4c69b06fb30a2b243bb3107045352e3c6e648b2051a1074d5af524e92a2201ae1c7802983695c1cc79aced99b10056286811cbf114ce1"
+  },
+  {
+   "id": "T27",
+   "name": "Team Spirit",
+   "key": "team spirit",
+   "role": "team",
+   "hash": "a69b56d759b683fa9de18acf08beb38c:4d38474dc5313983ca3d9df9ea87fce8ea888cda40f951285997786510aed4e5d6899880f23f45e265c7cb26b9b3dc6067734d6a81ec01988341afd0f3be8df3"
+  },
+  {
+   "id": "T28",
+   "name": "NUKE",
+   "key": "nuke",
+   "role": "team",
+   "hash": "fbe96f890c40186dcbea75793e2bc7fd:f302d4152df7365324fb0b9a8391f209b6c26906563fd159dba25cce6db6503a76a59d1a57582ff4a8b49992fb0af68d9bd284c14b2771285ccbb6ac98e18380"
+  },
+  {
+   "id": "T29",
+   "name": "Rising Stars",
+   "key": "rising stars",
+   "role": "team",
+   "hash": "4a2bc079cfb8bb95ecf3448045e607c3:e55830a88b8868e64de8cd21b0a3cac840d7feadfc2e2a68703766fa28715ed3907d8f114dace606517b23c43678b1f3e003e60d850f13ba425ebf2a9ea83a90"
+  },
+  {
+   "id": "T30",
+   "name": "CODEAVENGERS",
+   "key": "codeavengers",
+   "role": "team",
+   "hash": "36b0e2913b71c398a09955d6a81ed222:e9853d8fcb927b81c48f8a4c2194368318511c8f15f7abf92eda44328edf011dab5468cb01587536f8b9b58a848ba78f3f0f796b22709d98e6991032d660b5dc"
+  }
+ ],
+ "windowOpen": true,
+ "openedAt": "2026-10-13T17:05:39.512Z",
+ "closedAt": null,
+ "allocations": {
+  "PS02": {
+   "teamId": "T01",
+   "teamName": "SkyStack",
+   "at": "2026-10-13T17:30:31.080Z"
+  }
+ },
+ "audit": [
+  {
+   "at": "2026-10-13T17:01:54.735Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "login_failed",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:02:21.112Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "login_failed",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:02:25.268Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "login_failed",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:02:28.215Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "login_failed",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:02:29.084Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "login_failed",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:03:52.406Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "login",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:04:56.771Z",
+   "actor": "SkyStack",
+   "action": "login_failed",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:05:01.619Z",
+   "actor": "SkyStack",
+   "action": "login",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:05:39.512Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "window_open",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:05:49.669Z",
+   "actor": "SkyStack",
+   "action": "claim",
+   "detail": "PS02 - Automated Code Quality Gate"
+  },
+  {
+   "at": "2026-10-13T17:06:17.373Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "revoke",
+   "detail": "PS02 from SkyStack (was claimed 2026-10-13T17:05:49.669Z). Reason: Testing"
+  },
+  {
+   "at": "2026-10-13T17:06:25.486Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "window_close",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:22:30.380Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "login",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:22:38.631Z",
+   "actor": "devopsitinfra@bitsathy.ac.in",
+   "action": "window_open",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:23:19.049Z",
+   "actor": "SkyStack",
+   "action": "login",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:29:05.016Z",
+   "actor": "SkyStack",
+   "action": "login",
+   "detail": ""
+  },
+  {
+   "at": "2026-10-13T17:30:31.080Z",
+   "actor": "SkyStack",
+   "action": "claim",
+   "detail": "PS02 - Automated Code Quality Gate"
+  }
+ ],
+ "lastLogin": {
+  "admin": "2026-10-13T17:22:30.380Z",
+  "T01": "2026-10-13T17:29:05.016Z"
+ },
+ "failed": {
+  "admin": 5,
+  "T01": 1
+ }
+}
