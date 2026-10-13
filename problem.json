@@ -1,0 +1,853 @@
+[
+  {
+    "id": "PS01",
+    "title": "Automated CI/CD Pipeline for Web Applications",
+    "category": "CI/CD and Release Automation",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Develop an automated CI/CD pipeline that builds, tests and deploys a sample web application whenever new code is pushed to a Git repository. The pipeline must stop deployment if the automated tests fail.",
+    "requirements": [
+      "Create a simple web application.",
+      "Configure a GitHub Actions workflow triggered by a code push.",
+      "Execute at least one automated test.",
+      "Build a Docker image.",
+      "Deploy the application to an accessible server.",
+      "Display pipeline execution logs."
+    ],
+    "deliverables": [
+      "Source repository and CI/CD workflow.",
+      "Dockerfile and deployment configuration.",
+      "Automated test results.",
+      "Working deployed application.",
+      "README documenting the workflow."
+    ],
+    "demonstration": "Modify the application, push the change, and demonstrate the automated testing and deployment process.",
+    "tools": "GitHub Actions, Git, Docker, Nginx, Node.js or Python."
+  },
+  {
+    "id": "PS02",
+    "title": "Automated Code Quality Gate",
+    "category": "CI/CD and Release Automation",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Develop a CI workflow that checks source code for basic quality issues before allowing it to proceed to deployment. The system must run automated tests and code-quality checks and reject code that violates the configured rules.",
+    "requirements": [
+      "Create a sample application.",
+      "Integrate a linter and automated tests.",
+      "Configure a pass/fail quality gate.",
+      "Include one intentionally faulty code change.",
+      "Display the reason for a failed quality check.",
+      "Deploy the application when all checks pass."
+    ],
+    "deliverables": [
+      "Source repository and CI workflow.",
+      "Linting and test results.",
+      "Quality-gate configuration.",
+      "Evidence of a rejected faulty change.",
+      "Working deployed application."
+    ],
+    "demonstration": "Push a valid change and then a faulty change. Show the pipeline passing the first and rejecting the second.",
+    "tools": "GitHub Actions, ESLint or Ruff, Jest or pytest, Docker."
+  },
+  {
+    "id": "PS03",
+    "title": "Zero-Downtime Deployment Simulator",
+    "category": "CI/CD and Release Automation",
+    "difficulty": "Intermediate",
+    "description": "Implement a blue-green deployment system that switches between two application versions while minimizing service interruption. The system must verify the health of the new version before directing traffic to it.",
+    "requirements": [
+      "Run two distinguishable application versions.",
+      "Configure Nginx as a reverse proxy.",
+      "Implement a script to switch between versions.",
+      "Perform a health check before switching traffic.",
+      "Retain the previous version if the new version is unhealthy.",
+      "Record deployment and switching events."
+    ],
+    "deliverables": [
+      "Two application versions.",
+      "Nginx configuration.",
+      "Deployment and health-check scripts.",
+      "Logs showing the switching process.",
+      "Working deployed application."
+    ],
+    "demonstration": "Send repeated requests while switching versions. Demonstrate that requests continue succeeding and that an unhealthy version is not activated.",
+    "tools": "Docker Compose, Nginx, Bash, curl."
+  },
+  {
+    "id": "PS04",
+    "title": "Automated Release Rollback System",
+    "category": "CI/CD and Release Automation",
+    "difficulty": "Intermediate",
+    "description": "Develop a deployment workflow that automatically restores the previous working application version when a newly deployed version fails its health checks.",
+    "requirements": [
+      "Maintain two identifiable application versions.",
+      "Implement version selection.",
+      "Deploy the selected version.",
+      "Check application health.",
+      "Automatically restore the previous version after a failed health check.",
+      "Record deployment and rollback events."
+    ],
+    "deliverables": [
+      "Versioned application images or releases.",
+      "Deployment and rollback script.",
+      "Health-check mechanism.",
+      "Logs showing a failed release and successful rollback.",
+      "README containing execution instructions."
+    ],
+    "demonstration": "Deploy an intentionally unhealthy version and demonstrate that the system detects the failure and restores the previous working version.",
+    "tools": "Docker, Docker Compose, Bash, Python."
+  },
+  {
+    "id": "PS05",
+    "title": "Software Build Artifact Registry",
+    "category": "CI/CD and Release Automation",
+    "difficulty": "Intermediate",
+    "description": "Develop a workflow that generates versioned software artifacts, stores them in a designated repository, and verifies their integrity before deployment.",
+    "requirements": [
+      "Build two distinguishable application versions.",
+      "Assign a unique version or build identifier to each artifact.",
+      "Store the artifacts in a registry or designated artifact repository.",
+      "Generate SHA-256 checksums.",
+      "Retrieve a selected artifact and verify its checksum.",
+      "Document the artifact retrieval process."
+    ],
+    "deliverables": [
+      "Two versioned artifacts.",
+      "Artifact storage or registry configuration.",
+      "Build metadata and checksums.",
+      "Verification script.",
+      "Documentation and test evidence."
+    ],
+    "demonstration": "Publish two versions, retrieve one version, and verify that its checksum matches the recorded value.",
+    "tools": "GitHub Actions, Docker Registry or GitHub Packages, SHA-256 utilities."
+  },
+  {
+    "id": "PS06",
+    "title": "Containerize a Legacy Application",
+    "category": "Containers and Orchestration",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Package a sample application into a Docker container so that it can run consistently without manually installing its dependencies on the host machine.",
+    "requirements": [
+      "Select a simple existing application.",
+      "Create a Dockerfile.",
+      "Configure application dependencies.",
+      "Use environment variables for configuration.",
+      "Build and run the Docker image.",
+      "Make the application accessible through a browser or API client."
+    ],
+    "deliverables": [
+      "Source code and Dockerfile.",
+      "Dependency configuration.",
+      "Docker Compose file if needed.",
+      "Working containerized application.",
+      "README with build and execution instructions."
+    ],
+    "demonstration": "Build the image and run the application in a container. Show that it works without manually installing the application dependencies on the host.",
+    "tools": "Docker, Docker Compose, Node.js or Python."
+  },
+  {
+    "id": "PS07",
+    "title": "Self-Healing Container Platform",
+    "category": "Containers and Orchestration",
+    "difficulty": "Intermediate",
+    "description": "Develop a containerized application that detects failures and automatically recovers from common service interruptions.",
+    "requirements": [
+      "Containerize a sample application.",
+      "Configure an application health endpoint.",
+      "Define an appropriate container restart policy.",
+      "Configure health checks.",
+      "Demonstrate the difference between a running container and a healthy",
+      "application.",
+      "Record recovery events or status changes."
+    ],
+    "deliverables": [
+      "Dockerfile and container configuration.",
+      "Health-check endpoint.",
+      "Restart policy and health-check configuration.",
+      "Evidence of recovery after a controlled failure.",
+      "README describing the recovery process."
+    ],
+    "demonstration": "Trigger a controlled container failure and demonstrate the recovery process.",
+    "tools": "Docker, Docker Compose, Python or Node.js."
+  },
+  {
+    "id": "PS08",
+    "title": "Kubernetes Application Deployment and Scaling",
+    "category": "Containers and Orchestration",
+    "difficulty": "Intermediate–Advanced",
+    "description": "Deploy a containerized application to a Kubernetes environment and demonstrate replica management, health checking and automatic replacement of failed pods.",
+    "requirements": [
+      "Use a working Kubernetes environment.",
+      "Deploy a containerized application.",
+      "Create Deployment and Service manifests.",
+      "Configure readiness and liveness probes.",
+      "Scale the application from one to three replicas.",
+      "Demonstrate replacement of a deleted pod."
+    ],
+    "deliverables": [
+      "Docker image.",
+      "Kubernetes manifests.",
+      "Deployment and scaling commands.",
+      "Evidence of pod replacement.",
+      "Working application endpoint.",
+      "README with deployment instructions."
+    ],
+    "demonstration": "Deploy the application, scale it to three replicas, delete one pod and demonstrate Kubernetes creating a replacement.",
+    "tools": "Kubernetes, Minikube or kind, Docker, kubectl.",
+    "scopeRestriction": "Teams must have a working local Kubernetes environment or access to a prepared cluster. Installing and configuring a new Kubernetes environment from scratch is not part of the challenge."
+  },
+  {
+    "id": "PS09",
+    "title": "Container Resource Optimization",
+    "category": "Containers and Orchestration",
+    "difficulty": "Intermediate",
+    "description": "Build a tool that monitors container CPU and memory usage and demonstrates how resource limits affect a container running a controlled workload.",
+    "requirements": [
+      "Create a containerized sample workload.",
+      "Collect CPU and memory usage.",
+      "Display resource usage before optimization.",
+      "Apply configurable resource limits.",
+      "Repeat the workload and record the results.",
+      "Generate a basic comparison report."
+    ],
+    "deliverables": [
+      "Sample workload and Docker configuration.",
+      "Resource-monitoring script or dashboard.",
+      "Configurable resource limits.",
+      "Before-and-after measurements.",
+      "Short report explaining the results."
+    ],
+    "demonstration": "Run the workload, observe its resource usage, apply limits and show the resulting behavior.",
+    "tools": "Docker, Python, Docker statistics, cAdvisor or Grafana."
+  },
+  {
+    "id": "PS10",
+    "title": "Container Network Isolation",
+    "category": "Containers and Orchestration",
+    "difficulty": "Intermediate",
+    "description": "Create a multi-container application with restricted network communication so that each service can access only the components required for its operation.",
+    "requirements": [
+      "Create a frontend, backend and database service.",
+      "Configure Docker networks to restrict communication.",
+      "Allow frontend-to-backend communication.",
+      "Allow backend-to-database communication.",
+      "Prevent direct frontend-to-database communication.",
+      "Test permitted and prohibited connections."
+    ],
+    "deliverables": [
+      "Docker Compose configuration.",
+      "Three services or equivalent test containers.",
+      "Network diagram.",
+      "Connectivity test results.",
+      "Working deployed application."
+    ],
+    "demonstration": "Show that permitted connections succeed and prohibited connections fail.",
+    "tools": "Docker Compose, Docker bridge networks, curl, netcat."
+  },
+  {
+    "id": "PS11",
+    "title": "One-Command Infrastructure Provisioning",
+    "category": "Infrastructure as Code and Cloud",
+    "difficulty": "Intermediate",
+    "description": "Develop an Infrastructure as Code solution that provisions a small, repeatable application environment using declarative configuration.",
+    "requirements": [
+      "Create Terraform configuration files.",
+      "Define at least two related infrastructure resources.",
+      "Use variables for configurable values.",
+      "Generate and review a Terraform plan.",
+      "Provision the environment.",
+      "Demonstrate controlled cleanup."
+    ],
+    "deliverables": [
+      "Terraform configuration.",
+      "Variables and outputs.",
+      "Successful plan and deployment evidence.",
+      "Resource or service endpoint information.",
+      "README containing setup and cleanup instructions."
+    ],
+    "demonstration": "Provision the environment, show the created resources and demonstrate how a configuration change affects the Terraform plan.",
+    "tools": "Terraform, Docker provider or an approved cloud provider.",
+    "scopeRestriction": "Local Docker resources or a prepared cloud sandbox are acceptable. Paid cloud provisioning is not mandatory."
+  },
+  {
+    "id": "PS12",
+    "title": "Automated Linux Server Configuration",
+    "category": "Infrastructure as Code and Cloud",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Automate the configuration of a Linux server using Ansible. The playbook must install a web server, configure a simple web page and ensure the service is running.",
+    "requirements": [
+      "Create an Ansible inventory.",
+      "Write a playbook to install Nginx.",
+      "Configure a sample web page.",
+      "Start and enable the service.",
+      "Verify that the page is accessible.",
+      "Demonstrate repeat execution without unnecessary changes."
+    ],
+    "deliverables": [
+      "Ansible inventory and playbook.",
+      "Web server configuration.",
+      "Working web page.",
+      "Execution logs.",
+      "README with setup instructions."
+    ],
+    "demonstration": "Execute the playbook, access the web page and run the playbook again to demonstrate idempotency.",
+    "tools": "Ansible, Ubuntu, Nginx."
+  },
+  {
+    "id": "PS13",
+    "title": "Automated Cloud Storage Backup and Restore",
+    "category": "Infrastructure as Code and Cloud",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Develop an automated backup and restoration system that stores timestamped copies of selected files and verifies that the files can be recovered without data corruption.",
+    "requirements": [
+      "Select a set of sample files.",
+      "Create timestamped backups.",
+      "Store backups separately from the original files.",
+      "Generate checksums.",
+      "Implement a restoration script.",
+      "Verify restored file integrity."
+    ],
+    "deliverables": [
+      "Backup script.",
+      "Backup storage directory or object storage.",
+      "Timestamped backup files.",
+      "Restoration script.",
+      "Backup logs and integrity verification results."
+    ],
+    "demonstration": "Back up sample files, remove a working copy, restore the files and verify that their checksums match the originals.",
+    "tools": "Python or Bash, MinIO or a designated backup directory."
+  },
+  {
+    "id": "PS14",
+    "title": "Infrastructure Configuration Drift Detector",
+    "category": "Infrastructure as Code and Cloud",
+    "difficulty": "Intermediate",
+    "description": "Build a tool that compares a declared infrastructure configuration with the observed configuration and reports differences without automatically modifying the environment.",
+    "requirements": [
+      "Define a baseline configuration using YAML or JSON.",
+      "Collect the actual state of a test environment.",
+      "Compare expected and observed values.",
+      "Identify mismatched settings.",
+      "Report each discrepancy.",
+      "Recommend a corrective action."
+    ],
+    "deliverables": [
+      "Baseline configuration.",
+      "State-collection script.",
+      "Comparison engine.",
+      "Drift report.",
+      "Test cases for matching and mismatching configurations."
+    ],
+    "demonstration": "Modify a monitored setting, run the checker and demonstrate that it identifies the configuration drift.",
+    "tools": "Python, YAML, JSON, Ansible facts or Linux configuration utilities."
+  },
+  {
+    "id": "PS15",
+    "title": "Cloud Resource Cost Estimator",
+    "category": "Infrastructure as Code and Cloud",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Develop a tool that estimates infrastructure costs using a predefined pricing dataset and compares alternative infrastructure configurations.",
+    "requirements": [
+      "Provide a documented resource-pricing dataset.",
+      "Allow users to select resource types and quantities.",
+      "Calculate estimated hourly and monthly costs.",
+      "Compare at least two configurations.",
+      "Display a cost breakdown.",
+      "Identify potential cost savings."
+    ],
+    "deliverables": [
+      "Pricing dataset.",
+      "Input interface or command-line tool.",
+      "Cost-calculation engine.",
+      "Comparison report.",
+      "README documenting assumptions and limitations."
+    ],
+    "demonstration": "Compare two infrastructure configurations and explain which resources contribute most to their cost differences.",
+    "tools": "Python or JavaScript, CSV or JSON, Streamlit or a simple web interface.",
+    "scopeRestriction": "Actual cloud billing integration is not required."
+  },
+  {
+    "id": "PS16",
+    "title": "Real-Time Server Health Dashboard",
+    "category": "Monitoring, Logging and Reliability",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Develop a dashboard that displays server CPU utilization, memory usage, disk usage and uptime, helping administrators identify resource problems.",
+    "requirements": [
+      "Collect metrics from a Linux server.",
+      "Display CPU, memory and disk usage.",
+      "Display uptime or server availability.",
+      "Configure at least two warning thresholds.",
+      "Show changing metrics under a controlled workload.",
+      "Deploy the dashboard to an accessible server."
+    ],
+    "deliverables": [
+      "Metrics-collection component.",
+      "Dashboard.",
+      "Configurable thresholds.",
+      "Historical or periodically updated metrics.",
+      "README and demonstration evidence."
+    ],
+    "demonstration": "Generate CPU or memory load and show the corresponding changes on the dashboard.",
+    "tools": "Python, Flask, psutil, Prometheus and Grafana."
+  },
+  {
+    "id": "PS17",
+    "title": "Alerting and Incident Notification System",
+    "category": "Monitoring, Logging and Reliability",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Build a monitoring system that detects service failures and generates notifications containing the affected service, detected condition and time of occurrence.",
+    "requirements": [
+      "Monitor a service or application endpoint.",
+      "Configure two alert conditions.",
+      "Generate notifications through email, a webhook or a local receiver.",
+      "Include useful incident information in each alert.",
+      "Detect service recovery.",
+      "Record alert events."
+    ],
+    "deliverables": [
+      "Monitoring configuration or script.",
+      "Two alert rules.",
+      "Notification mechanism.",
+      "Alert and recovery logs.",
+      "README with testing instructions."
+    ],
+    "demonstration": "Stop a monitored service, demonstrate an alert, restart the service and show that recovery is detected.",
+    "tools": "Python, HTTP health checks, Prometheus and Alertmanager, or a local webhook receiver."
+  },
+  {
+    "id": "PS18",
+    "title": "Centralized Log Search Platform",
+    "category": "Monitoring, Logging and Reliability",
+    "difficulty": "Intermediate",
+    "description": "Develop a centralized logging solution that collects logs from at least two application services and allows users to search and filter them through a common interface.",
+    "requirements": [
+      "Create or use two sample services.",
+      "Collect logs from both services.",
+      "Store or aggregate the logs centrally.",
+      "Filter logs by service and severity.",
+      "Search logs by message content.",
+      "Demonstrate investigation of a sample error."
+    ],
+    "deliverables": [
+      "Two log-producing services.",
+      "Log-collection configuration.",
+      "Centralized log interface.",
+      "Example error queries.",
+      "README and test evidence."
+    ],
+    "demonstration": "Generate errors in both services and retrieve the relevant logs from the same interface.",
+    "tools": "Grafana Loki, Grafana, Docker Compose.",
+    "scopeRestriction": "Use predefined logging configurations where possible. Building a complete production logging platform is not required."
+  },
+  {
+    "id": "PS19",
+    "title": "Automated Root-Cause Analysis Assistant",
+    "category": "Monitoring, Logging and Reliability",
+    "difficulty": "Intermediate",
+    "description": "Develop a diagnostic assistant that analyzes application logs and health-check results to identify likely causes of common operational failures and recommend investigation steps.",
+    "requirements": [
+      "Accept logs or structured incident data.",
+      "Implement rules for at least four failure scenarios.",
+      "Identify the likely cause of each scenario.",
+      "Display the evidence supporting each diagnosis.",
+      "Recommend troubleshooting steps.",
+      "Test the assistant against multiple incident examples."
+    ],
+    "deliverables": [
+      "Diagnostic engine.",
+      "Sample incident datasets.",
+      "Rule definitions.",
+      "Diagnostic reports.",
+      "Test results and documentation."
+    ],
+    "demonstration": "Provide different incident datasets and demonstrate how the assistant produces diagnoses supported by the input evidence.",
+    "tools": "Python, regular expressions, JSON.",
+    "scopeRestriction": "A rule-based solution is sufficient. An LLM integration is optional."
+  },
+  {
+    "id": "PS20",
+    "title": "Service Availability and SLA Reporter",
+    "category": "Monitoring, Logging and Reliability",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Build a monitoring tool that periodically checks a service endpoint and calculates its availability, downtime and response-time statistics.",
+    "requirements": [
+      "Accept a configurable HTTP endpoint.",
+      "Perform periodic health checks.",
+      "Record timestamps and response statuses.",
+      "Calculate availability percentage and observed downtime.",
+      "Calculate average response time.",
+      "Export a CSV report."
+    ],
+    "deliverables": [
+      "Monitoring script or service.",
+      "Timestamped monitoring records.",
+      "Availability calculations.",
+      "CSV report.",
+      "README explaining the calculation method."
+    ],
+    "demonstration": "Run successful and failed health checks against a test service and generate a report showing the resulting availability.",
+    "tools": "Python, SQLite, HTTP client libraries."
+  },
+  {
+    "id": "PS21",
+    "title": "Automated Container Vulnerability Scanner",
+    "category": "DevSecOps and Security Automation",
+    "difficulty": "Intermediate",
+    "description": "Create an automated workflow that scans container images for known vulnerabilities and prevents images exceeding a configured severity threshold from proceeding to deployment.",
+    "requirements": [
+      "Select a suitable training image.",
+      "Scan the image using a vulnerability scanner.",
+      "Generate a report of detected vulnerabilities.",
+      "Configure a severity threshold.",
+      "Integrate the scanner into a CI workflow or equivalent automated pipeline.",
+      "Demonstrate a policy-triggered failure."
+    ],
+    "deliverables": [
+      "Scanning configuration.",
+      "Automated scanning workflow.",
+      "Vulnerability report.",
+      "Severity policy.",
+      "Evidence of a passing and failing scan."
+    ],
+    "demonstration": "Scan an appropriate training image, demonstrate the configured policy and show how an updated image changes the result.",
+    "tools": "Trivy, Docker, GitHub Actions."
+  },
+  {
+    "id": "PS22",
+    "title": "Secret Leak Detection in Git Repositories",
+    "category": "DevSecOps and Security Automation",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Develop a secret-detection workflow that identifies dummy credentials accidentally introduced into source code and prevents the affected change from passing the configured security checks.",
+    "requirements": [
+      "Create a sample Git repository.",
+      "Configure a secret scanner.",
+      "Include safe dummy secret examples.",
+      "Integrate scanning into a pre-commit hook or CI workflow.",
+      "Report the affected file and detected issue.",
+      "Demonstrate detection of a dummy credential."
+    ],
+    "deliverables": [
+      "Sample repository.",
+      "Secret-scanning configuration.",
+      "Pre-commit hook or CI workflow.",
+      "Detection report.",
+      "README explaining safe secret handling and remediation."
+    ],
+    "demonstration": "Attempt to commit a dummy API key and demonstrate that the scanner detects or rejects the change.",
+    "tools": "Gitleaks, Git hooks, GitHub Actions."
+  },
+  {
+    "id": "PS23",
+    "title": "Infrastructure Security Compliance Checker",
+    "category": "DevSecOps and Security Automation",
+    "difficulty": "Intermediate",
+    "description": "Develop a security-checking workflow that evaluates Infrastructure as Code configurations against a small set of predefined security policies.",
+    "requirements": [
+      "Create compliant and noncompliant sample configurations.",
+      "Define at least three security policies.",
+      "Scan the configurations automatically.",
+      "Identify policy violations.",
+      "Configure a validation gate that rejects a critical violation.",
+      "Demonstrate a correction."
+    ],
+    "deliverables": [
+      "Sample infrastructure configurations.",
+      "Security policy definitions.",
+      "Automated scanning workflow.",
+      "Violation report.",
+      "Evidence of successful validation after correction."
+    ],
+    "demonstration": "Scan a configuration with an overly permissive access rule, demonstrate the violation, correct the configuration and rerun the checker.",
+    "tools": "Checkov or OPA/Conftest, Terraform, GitHub Actions."
+  },
+  {
+    "id": "PS24",
+    "title": "Automated Linux Security Baseline Auditor",
+    "category": "DevSecOps and Security Automation",
+    "difficulty": "Intermediate",
+    "description": "Build a read-only auditing tool that evaluates a Linux machine against a small set of security baseline checks and recommends corrective actions for failed checks.",
+    "requirements": [
+      "Implement at least five security checks.",
+      "Inspect relevant Linux settings.",
+      "Report passed, failed and unverified checks.",
+      "Explain why each failed check matters.",
+      "Recommend remediation.",
+      "Avoid automatically modifying system settings."
+    ],
+    "deliverables": [
+      "Security-auditing script.",
+      "Baseline definitions.",
+      "Audit report.",
+      "Remediation recommendations.",
+      "README documenting supported checks."
+    ],
+    "demonstration": "Run the auditor against a test Linux machine and display the results of at least three checks.",
+    "tools": "Bash or Python, OpenSSH configuration, systemd, Linux file permissions."
+  },
+  {
+    "id": "PS25",
+    "title": "Software Supply Chain Verification",
+    "category": "DevSecOps and Security Automation",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Develop an artifact-integrity verification workflow that calculates a checksum during a build and verifies the artifact before deployment.",
+    "requirements": [
+      "Create a sample artifact.",
+      "Generate a SHA-256 checksum.",
+      "Store the checksum alongside artifact metadata.",
+      "Implement a verification script.",
+      "Verify an unchanged artifact successfully.",
+      "Detect a modified artifact."
+    ],
+    "deliverables": [
+      "Sample artifact.",
+      "Checksum-generation script.",
+      "Metadata manifest.",
+      "Verification script.",
+      "Test evidence for successful and failed verification."
+    ],
+    "demonstration": "Verify an untouched artifact, modify a copy and demonstrate that the altered artifact fails verification.",
+    "tools": "Python or Bash, SHA-256, GitHub Actions."
+  },
+  {
+    "id": "PS26",
+    "title": "Automated Network and Service Diagnostics",
+    "category": "Networking and Infrastructure Operations",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Develop a diagnostic tool that checks network and application connectivity and provides troubleshooting suggestions based on the observed results.",
+    "requirements": [
+      "Accept a hostname, IP address or service endpoint.",
+      "Check DNS resolution.",
+      "Check TCP port connectivity.",
+      "Check HTTP response status and response time.",
+      "Display individual pass/fail results.",
+      "Provide troubleshooting suggestions for failed checks."
+    ],
+    "deliverables": [
+      "Diagnostic CLI or web application.",
+      "Network-checking functions.",
+      "Structured diagnostic report.",
+      "Test cases covering healthy and failing endpoints.",
+      "README with execution instructions."
+    ],
+    "demonstration": "Test a working service and a controlled failing service, then compare the diagnostic results.",
+    "tools": "Python, socket, dig, HTTP client libraries."
+  },
+  {
+    "id": "PS27",
+    "title": "Reverse Proxy and Load Balancer",
+    "category": "Networking and Infrastructure Operations",
+    "difficulty": "Intermediate",
+    "description": "Deploy two backend application instances behind a reverse proxy that distributes incoming requests and continues serving requests when one backend becomes unavailable.",
+    "requirements": [
+      "Create two distinguishable backend instances.",
+      "Configure Nginx as a reverse proxy.",
+      "Implement a load-balancing strategy.",
+      "Identify which backend handled each request.",
+      "Test the system with one backend unavailable.",
+      "Make the application accessible externally."
+    ],
+    "deliverables": [
+      "Reverse-proxy configuration.",
+      "Two backend instances.",
+      "Load-balancing demonstration.",
+      "Failure-test results.",
+      "Architecture diagram and README."
+    ],
+    "demonstration": "Send repeated requests, demonstrate distribution across both backends, stop one backend and verify that requests continue reaching the available backend.",
+    "tools": "Nginx, Docker Compose, Python or Node.js."
+  },
+  {
+    "id": "PS28",
+    "title": "Local DNS Management and Health Checker",
+    "category": "Networking and Infrastructure Operations",
+    "difficulty": "Intermediate",
+    "description": "Create a DNS validation tool that compares actual DNS resolution results with a predefined list of expected hostnames and IP addresses.",
+    "requirements": [
+      "Define at least three expected DNS records.",
+      "Configure a local DNS service or use a predefined DNS test environment.",
+      "Query the configured DNS records.",
+      "Compare actual and expected results.",
+      "Identify missing or mismatched records.",
+      "Generate a validation report."
+    ],
+    "deliverables": [
+      "DNS configuration or test dataset.",
+      "Expected-record definitions.",
+      "DNS validation script.",
+      "Report identifying valid and invalid records.",
+      "README with setup and testing instructions."
+    ],
+    "demonstration": "Validate several records, introduce an incorrect mapping in the test environment and demonstrate that the checker detects the mismatch.",
+    "tools": "CoreDNS or BIND9, Python, dig.",
+    "scopeRestriction": "A predefined DNS environment or simulated record dataset is acceptable if local DNS configuration becomes an environmental obstacle."
+  },
+  {
+    "id": "PS29",
+    "title": "Network Configuration Drift Monitor",
+    "category": "Networking and Infrastructure Operations",
+    "difficulty": "Intermediate",
+    "description": "Develop a tool that compares the current network configuration of a Linux machine with an approved baseline and reports unexpected changes.",
+    "requirements": [
+      "Capture expected interface addresses, routes and DNS settings.",
+      "Collect the current network state.",
+      "Compare actual and expected values.",
+      "Identify mismatches.",
+      "Generate a structured drift report.",
+      "Avoid automatically modifying network settings."
+    ],
+    "deliverables": [
+      "Baseline configuration.",
+      "Network-state collector.",
+      "Comparison script.",
+      "Drift report.",
+      "Test evidence and documentation."
+    ],
+    "demonstration": "Capture the baseline, change a test setting and run the checker to identify the difference.",
+    "tools": "Python, Linux iproute2, JSON."
+  },
+  {
+    "id": "PS30",
+    "title": "Firewall Rule Audit and Generator",
+    "category": "Networking and Infrastructure Operations",
+    "difficulty": "Intermediate",
+    "description": "Build a tool that audits a declared firewall policy, identifies overly permissive rules and generates a proposed corrected configuration for review.",
+    "requirements": [
+      "Accept a firewall policy in JSON or YAML.",
+      "Define at least three validation rules.",
+      "Identify unnecessarily broad permissions.",
+      "Report each violation and its severity.",
+      "Generate a proposed corrected configuration.",
+      "Avoid automatically applying firewall changes."
+    ],
+    "deliverables": [
+      "Firewall policy input.",
+      "Validation rules.",
+      "Audit report.",
+      "Generated candidate configuration.",
+      "Test cases and README."
+    ],
+    "demonstration": "Audit a sample policy containing unnecessary access, show the findings and generate a more restrictive configuration.",
+    "tools": "Python, YAML or JSON, UFW or nftables in a test environment."
+  },
+  {
+    "id": "PS31",
+    "title": "Automated Development Environment Setup Wizard",
+    "category": "Developer Productivity and Operational Automation",
+    "difficulty": "Beginner–Intermediate",
+    "description": "Develop a setup tool that checks prerequisites, prepares a sample application's environment and launches the application with minimal manual configuration.",
+    "requirements": [
+      "Define the application's prerequisites.",
+      "Check whether required tools are installed.",
+      "Create a configuration file from a safe template.",
+      "Report missing requirements.",
+      "Provide a repeatable setup or launch command.",
+      "Avoid overwriting existing configuration without permission."
+    ],
+    "deliverables": [
+      "Sample application.",
+      "Prerequisite checker.",
+      "Setup script.",
+      "Configuration template.",
+      "Working application and README."
+    ],
+    "demonstration": "Run the setup workflow in a prepared test environment and demonstrate that it checks prerequisites and launches the application.",
+    "tools": "Python or Bash, Git, Docker Compose."
+  },
+  {
+    "id": "PS32",
+    "title": "Deployment Approval and Audit Portal",
+    "category": "Developer Productivity and Operational Automation",
+    "difficulty": "Intermediate",
+    "description": "Develop a lightweight portal that records deployment requests, approval decisions, version identifiers and deployment outcomes.",
+    "requirements": [
+      "Create a deployment-request interface.",
+      "Store requests in a persistent database.",
+      "Implement pending, approved and rejected states.",
+      "Record timestamps and request details.",
+      "Trigger a predefined deployment script or a safe simulated deployment.",
+      "Display the deployment outcome."
+    ],
+    "deliverables": [
+      "Web interface.",
+      "Backend API.",
+      "Persistent database.",
+      "Approval workflow.",
+      "Audit history.",
+      "README and demonstration data."
+    ],
+    "demonstration": "Submit a deployment request, approve it, trigger the predefined workflow and inspect the resulting audit record.",
+    "tools": "FastAPI or Flask, SQLite, HTML/CSS, Docker."
+  },
+  {
+    "id": "PS33",
+    "title": "Database Backup Verification and Recovery",
+    "category": "Developer Productivity and Operational Automation",
+    "difficulty": "Intermediate",
+    "description": "Develop an automated workflow that backs up a sample database, restores the backup into a separate test database and verifies that the restored data matches the original.",
+    "requirements": [
+      "Create a sample database.",
+      "Generate a timestamped backup.",
+      "Validate the backup file.",
+      "Restore it into a separate test database.",
+      "Compare record counts or selected records.",
+      "Generate a verification report."
+    ],
+    "deliverables": [
+      "Sample database and schema.",
+      "Backup script.",
+      "Restoration script.",
+      "Verification mechanism.",
+      "Logs and test report."
+    ],
+    "demonstration": "Create a backup, restore it into a clean test database and demonstrate that the restored records match the original dataset.",
+    "tools": "MySQL or PostgreSQL, Bash or Python, Docker."
+  },
+  {
+    "id": "PS34",
+    "title": "Deployment Performance Benchmarking Tool",
+    "category": "Developer Productivity and Operational Automation",
+    "difficulty": "Intermediate",
+    "description": "Build a benchmarking tool that measures and compares the performance of two application versions under the same workload.",
+    "requirements": [
+      "Prepare two distinguishable application versions or configurations.",
+      "Generate a controlled request workload.",
+      "Measure response time.",
+      "Measure throughput and error rate.",
+      "Generate a comparison report.",
+      "Document the test conditions."
+    ],
+    "deliverables": [
+      "Two application versions or configurations.",
+      "Load-testing script.",
+      "Performance measurements.",
+      "Comparison report with charts or a table.",
+      "README explaining the methodology."
+    ],
+    "demonstration": "Run the same workload against both versions and display the resulting performance differences.",
+    "tools": "k6 or Locust, Python, CSV, Matplotlib."
+  },
+  {
+    "id": "PS35",
+    "title": "Self-Service DevOps Deployment Portal",
+    "category": "Developer Productivity and Operational Automation",
+    "difficulty": "Intermediate–Advanced",
+    "description": "Develop a web portal through which an authorized user can select a predefined application, choose a supported configuration and initiate a deployment workflow.",
+    "requirements": [
+      "Create a web interface for selecting one application.",
+      "Provide two or three predefined configuration options.",
+      "Validate deployment requests on the backend.",
+      "Trigger a predefined deployment script.",
+      "Display queued, running, successful or failed status.",
+      "Display the deployed application's endpoint or a useful failure message."
+    ],
+    "deliverables": [
+      "Web interface and backend.",
+      "Predefined deployment script.",
+      "Status-tracking mechanism.",
+      "Deployment logs.",
+      "Working deployed application.",
+      "README documenting the workflow."
+    ],
+    "demonstration": "Select the sample application, initiate deployment through the portal, monitor the deployment status and open the resulting application.",
+    "tools": "FastAPI or Flask, Docker Compose, SQLite.",
+    "scopeRestriction": "Support only one application and a small set of predefined configurations. Do not implement arbitrary shell-command execution or a general- purpose deployment platform."
+  }
+]

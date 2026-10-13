@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dev Sprint ’26 – Problem Selection</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:#f3f5f9;color:#1b2333}
+header{background:#14213d;color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+header h1{font-size:18px;margin:0}main{max-width:1100px;margin:0 auto;padding:16px}
+.card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px #0002;margin-bottom:14px}
+input,select,button{font:inherit;padding:9px 12px;border-radius:7px;border:1px solid #bbc3d1}
+button{cursor:pointer;background:#2b59c3;color:#fff;border:0}button:disabled{background:#9aa5bd;cursor:not-allowed}
+button.red{background:#c0392b}button.gray{background:#5b667d}button.green{background:#1e8a4c}
+.login{max-width:380px;margin:60px auto}.login input{width:100%;margin-bottom:10px}
+.pw{display:flex;gap:6px}.pw input{margin:0}.err{color:#c0392b;margin:8px 0;min-height:20px}
+.banner{padding:14px;border-radius:10px;font-weight:600;margin-bottom:14px}
+.OPEN{background:#d9f5e3;color:#126b38}.CLOSED{background:#fde0dd;color:#9b2315}.NOTSTARTED{background:#fff1cc;color:#7a5a00}
+.counts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.counts div{background:#fff;padding:10px 16px;border-radius:10px;box-shadow:0 1px 3px #0002}
+.counts b{font-size:22px;display:block}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.tools input{flex:1;min-width:180px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.p{background:#fff;border-radius:10px;padding:14px;border-left:6px solid #1e8a4c;box-shadow:0 1px 3px #0002}
+.p.TAKEN{border-left-color:#c0392b;background:#fbf3f2}.p small{color:#5b667d}.p h3{margin:6px 0;font-size:15px}
+.tag{font-size:12px;font-weight:700;padding:2px 8px;border-radius:10px}.tag.AVAILABLE{background:#d9f5e3;color:#126b38}.tag.TAKEN{background:#fde0dd;color:#9b2315}
+table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:7px;border-bottom:1px solid #e3e7ef;vertical-align:top}
+.scroll{overflow-x:auto}.mine{background:#e8efff;border:2px solid #2b59c3}
+.diff{font-size:11px;font-weight:600;background:#e9edf5;color:#3d485e;padding:2px 7px;border-radius:6px;display:inline-block;margin-left:4px}
+.desc{font-size:13px;color:#2d3748;margin:8px 0;line-height:1.45}
+.p.clickable{cursor:pointer;transition:transform 0.12s ease,box-shadow 0.12s ease}
+.p.clickable:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(0,0,0,0.08);border-color:#2b59c3}
+.modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,0.65);backdrop-filter:blur(4px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;animation:fadeIn 0.15s ease-out}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-window{background:#fff;border-radius:14px;max-width:760px;width:100%;max-height:90vh;display:flex;flex-direction:column;box-shadow:0 20px 25px -5px rgba(0,0,0,0.3);border:1px solid #e2e8f0}
+.modal-head{padding:16px 22px;border-bottom:1px solid #e2e8f0;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.modal-head h3{margin:6px 0 0 0;font-size:18px;color:#0f172a;line-height:1.35}
+.modal-close-btn{background:#f1f5f9;color:#475569;border:0;border-radius:50%;width:32px;height:32px;font-size:20px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
+.modal-close-btn:hover{background:#e2e8f0;color:#0f172a}
+.modal-content{padding:22px;overflow-y:auto;font-size:14px;line-height:1.6;color:#334155}
+.modal-foot{padding:14px 22px;border-top:1px solid #e2e8f0;background:#f8fafc;display:flex;justify-content:flex-end;gap:10px;border-bottom-left-radius:14px;border-bottom-right-radius:14px}
+.modal-box-section{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:14px}
+.modal-box-section h4{margin:0 0 6px 0;font-size:13.5px;color:#0f172a;text-transform:uppercase;letter-spacing:0.4px}
+.modal-box-section ul{margin:0;padding-left:20px}
+.modal-box-section li{margin-bottom:4px}
+.confirm-dialog{background:#fff;border-radius:14px;max-width:480px;width:100%;padding:24px;text-align:center;box-shadow:0 25px 50px -12px rgba(0,0,0,0.35);border:1px solid #e2e8f0}
+.confirm-dialog h3{margin:0 0 10px 0;color:#b91c1c;font-size:20px}
+.confirm-dialog p{font-size:14.5px;color:#334155;line-height:1.5;margin:0 0 20px 0}
+.confirm-actions{display:flex;gap:10px;justify-content:center}
+#off{display:none;background:#c0392b;color:#fff;text-align:center;padding:6px}
+</style></head><body>
+<div id="off">Connection lost – retrying… (your allocation is safe on the server)</div>
+<div id="modal-container"></div>
+<header><h1>Dev Sprint ’26 · DevOps Hackathon · Problem Selection</h1><div id="who"></div></header>
+<main id="app"></main>
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ist=iso=>iso?new Date(iso).toLocaleString('en-IN',{timeZone:'Asia/Kolkata',hour12:true})+' IST':'—';
+let S=null,timer=null,filterText='',filterStatus='ALL';
+
+async function call(url,method='GET',data){
+  const r=await fetch(url,{method,headers:{'Content-Type':'application/json'},body:data?JSON.stringify(data):undefined,credentials:'same-origin'});
+  let j={};try{j=await r.json()}catch{}
+  return {ok:r.ok,status:r.status,data:j};
+}
+function loginView(msg=''){
+  clearInterval(timer);S=null;$('#who').innerHTML='';closeModal();
+  $('#app').innerHTML=`<div class="card login"><h2>Team Login</h2>
+  <label>Team name<br><input id="u" autocomplete="username" autofocus></label>
+  <label>Password<br><div class="pw"><input id="pw" type="password" autocomplete="current-password"><button type="button" class="gray" id="sh">Show</button></div></label>
+  <div class="err" id="err">${esc(msg)}</div><button id="go" style="width:100%">Login</button>
+  <p style="font-size:12px;color:#5b667d">Admin: use your admin email as the username.</p></div>`;
+  $('#sh').onclick=()=>{const p=$('#pw');p.type=p.type==='password'?'text':'password';$('#sh').textContent=p.type==='password'?'Show':'Hide'};
+  const go=async()=>{const r=await call('/api/login','POST',{username:$('#u').value,password:$('#pw').value});
+    if(r.ok)start();else $('#err').textContent=r.data.error||'Login failed';};
+  $('#go').onclick=go;$('#pw').onkeydown=e=>{if(e.key==='Enter')go()};
+}
+async function start(){await refresh();clearInterval(timer);timer=setInterval(refresh,3000);}
+async function refresh(){
+  let r;try{r=await call('/api/state')}catch{$('#off').style.display='block';return}
+  $('#off').style.display='none';
+  if(r.status===401){return loginView(S?'Your session ended. Please log in again.':'')}
+  S=r.data;render();
+}
+function banner(){
+  const k=S.status.replace(' ','');
+  const t={'OPEN':'SELECTION IS OPEN – teams can claim a problem.','CLOSED':'SELECTION IS CLOSED – no further claims.','NOT STARTED':'NOT STARTED – waiting for the admin to open selection.'}[S.status];
+  return `<div class="banner ${k}">${t}</div>`;
+}
+function counts(){const c=S.counts;return `<div class="counts"><div><b>${c.available}</b>Available</div><div><b>${c.taken}</b>Claimed</div><div><b>${c.allocatedTeams}/${c.teams}</b>Teams allocated</div></div>`}
+function filtered(){const q=filterText.toLowerCase();return S.problems.filter(p=>(filterStatus==='ALL'||p.status===filterStatus)&&
+  (!q||(p.id+' '+p.title+' '+p.category+' '+(p.description||'')+' '+(p.tools||'')+' '+(p.team||'')).toLowerCase().includes(q)))}
+function toolbar(){return `<div class="tools"><input id="q" placeholder="Search ID, title, category, description, tools or team" value="${esc(filterText)}">
+ <select id="f"><option value="ALL">All</option><option value="AVAILABLE">Available</option><option value="TAKEN">Taken</option></select></div>`}
+function bindTools(rerender){$('#f').value=filterStatus;
+  $('#q').oninput=e=>{filterText=e.target.value;rerender()};$('#f').onchange=e=>{filterStatus=e.target.value;rerender()};}
+
+function closeModal(){$('#modal-container').innerHTML='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+function openProblemModal(id){
+  const p=S.problems.find(x=>x.id===id);
+  if(!p)return;
+  const can=S.status==='OPEN'&&!S.myAllocation&&p.status==='AVAILABLE';
+  $('#modal-container').innerHTML=`
+    <div class="modal-backdrop" id="modal-bg">
+      <div class="modal-window" onclick="event.stopPropagation()">
+        <div class="modal-head">
+          <div>
+            <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
+              <span style="font-size:12px;font-weight:700;color:#2b59c3">${esc(p.id)}</span>
+              <span style="color:#94a3b8">·</span>
+              <span style="font-size:12px;color:#475569">${esc(p.category)}</span>
+              ${p.difficulty?`<span class="diff">${esc(p.difficulty)}</span>`:''}
+              <span class="tag ${p.status}">${p.status}</span>
+            </div>
+            <h3>${esc(p.title)}</h3>
+            ${p.team?`<div style="font-size:13px;color:#9b2315;margin-top:4px">Claimed by: <b>${esc(p.team)}</b></div>`:''}
+          </div>
+          <button class="modal-close-btn" onclick="closeModal()" title="Close">&times;</button>
+        </div>
+        <div class="modal-content">
+          <div class="modal-box-section">
+            <h4>Problem Statement</h4>
+            <p>${esc(p.description||'No description provided.')}</p>
+          </div>
+          ${p.requirements&&p.requirements.length?`
+          <div class="modal-box-section">
+            <h4>Minimum Requirements</h4>
+            <ul>${p.requirements.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>
+          </div>`:''}
+          ${p.deliverables&&p.deliverables.length?`
+          <div class="modal-box-section">
+            <h4>Expected Deliverables</h4>
+            <ul>${p.deliverables.map(d=>`<li>${esc(d)}</li>`).join('')}</ul>
+          </div>`:''}
+          ${p.demonstration?`
+          <div class="modal-box-section">
+            <h4>Final Demonstration</h4>
+            <p>${esc(p.demonstration)}</p>
+          </div>`:''}
+          ${p.tools?`
+          <div class="modal-box-section">
+            <h4>Suggested Tools</h4>
+            <p>${esc(p.tools)}</p>
+          </div>`:''}
+          ${p.scopeRestriction?`
+          <div class="modal-box-section" style="background:#fffbeb;border-color:#fde68a;color:#92400e">
+            <h4 style="color:#b45309">Scope Restriction</h4>
+            <p>${esc(p.scopeRestriction)}</p>
+          </div>`:''}
+        </div>
+        <div class="modal-foot">
+          <button class="gray" onclick="closeModal()">Close</button>
+          ${can?`<button class="green" onclick="confirmClaim('${p.id}')">Claim This Problem</button>`:''}
+        </div>
+      </div>
+    </div>
+  `;
+  $('#modal-bg').onclick=closeModal;
+}
+
+function confirmClaim(id){
+  const p=S.problems.find(x=>x.id===id);
+  if(!p)return;
+  $('#modal-container').innerHTML=`
+    <div class="modal-backdrop" id="confirm-bg">
+      <div class="confirm-dialog" onclick="event.stopPropagation()">
+        <h3>⚠️ Confirm Problem Selection</h3>
+        <p>Make sure you want to choose:<br>
+          <strong style="font-size:16px;color:#1e3a8a;display:block;margin:10px 0">${esc(p.id)} – ${esc(p.title)}</strong>
+          <span style="color:#b91c1c;font-weight:700;display:block;margin-top:6px">⚠️ Important: Once chosen, your selection CANNOT be changed!</span>
+        </p>
+        <div class="confirm-actions">
+          <button class="gray" onclick="closeModal()">Cancel</button>
+          <button class="green" id="btn-conf">Yes, Claim Problem</button>
+        </div>
+      </div>
+    </div>
+  `;
+  $('#confirm-bg').onclick=closeModal;
+  $('#btn-conf').onclick=async()=>{
+    $('#btn-conf').disabled=true;
+    $('#btn-conf').textContent='Claiming...';
+    const r=await call('/api/claim','POST',{problemId:id});
+    if(r.ok){
+      closeModal();
+      refresh();
+    }else{
+      alert(r.data.error||'Claim failed');
+      closeModal();
+      refresh();
+    }
+  };
+}
+
+function render(){
+  $('#who').innerHTML=`${esc(S.me.name)} <button class="gray" id="lo">Logout</button>`;
+  $('#lo').onclick=async()=>{await call('/api/logout','POST',{});loginView()};
+  if(document.activeElement&&document.activeElement.id==='q'){const v=document.activeElement.selectionStart; draw(); const q=$('#q');q.focus();q.setSelectionRange(v,v);}
+  else draw();
+}
+function draw(){S.me.role==='admin'?adminView():teamView();}
+
+function teamView(){
+  const mine=S.myAllocation;
+  let h=banner();
+  if(mine){
+    h+=`<div class="card mine" style="padding:24px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:10px">
+        <span style="background:#1e8a4c;color:#fff;font-weight:700;font-size:12px;padding:4px 12px;border-radius:12px">✅ YOUR CONFIRMED PROBLEM</span>
+        <small style="color:#5b667d">Allocated at: <b>${ist(mine.at)}</b></small>
+      </div>
+      <h2 style="margin:8px 0 4px 0;font-size:22px;color:#1e3a8a">${esc(mine.id)} – ${esc(mine.title)}</h2>
+      <p style="margin:4px 0 16px 0;color:#475569"><small>${esc(mine.category||'')}</small> ${mine.difficulty?`<span class="diff">${esc(mine.difficulty)}</span>`:''}</p>
+      
+      <div class="modal-box-section" style="background:#fff">
+        <h4>Problem Statement</h4>
+        <p style="margin:0;font-size:14.5px;color:#334155;line-height:1.6">${esc(mine.description||'')}</p>
+      </div>
+      
+      ${mine.requirements&&mine.requirements.length?`
+      <div class="modal-box-section" style="background:#fff">
+        <h4>Minimum Requirements</h4>
+        <ul>${mine.requirements.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>
+      </div>`:''}
+      
+      ${mine.deliverables&&mine.deliverables.length?`
+      <div class="modal-box-section" style="background:#fff">
+        <h4>Expected Deliverables</h4>
+        <ul>${mine.deliverables.map(d=>`<li>${esc(d)}</li>`).join('')}</ul>
+      </div>`:''}
+      
+      ${mine.demonstration?`
+      <div class="modal-box-section" style="background:#fff">
+        <h4>Final Demonstration</h4>
+        <p style="margin:0">${esc(mine.demonstration)}</p>
+      </div>`:''}
+      
+      ${mine.tools?`
+      <div class="modal-box-section" style="background:#fff">
+        <h4>Suggested Tools</h4>
+        <p style="margin:0">${esc(mine.tools)}</p>
+      </div>`:''}
+      
+      ${mine.scopeRestriction?`
+      <div class="modal-box-section" style="background:#fffbeb;border-color:#fde68a;color:#92400e">
+        <h4 style="color:#b45309">Scope Restriction</h4>
+        <p style="margin:0">${esc(mine.scopeRestriction)}</p>
+      </div>`:''}
+    </div>`;
+    $('#app').innerHTML=h;
+    return;
+  }
+
+  h+=counts()+toolbar()+'<div class="grid">';
+  for(const p of filtered()){
+    const can=S.status==='OPEN'&&!mine&&p.status==='AVAILABLE';
+    h+=`<div class="p ${p.status} clickable" onclick="openProblemModal('${p.id}')">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px">
+        <small>${esc(p.id)} · ${esc(p.category)}</small>
+        ${p.difficulty?`<span class="diff">${esc(p.difficulty)}</span>`:''}
+      </div>
+      <h3>${esc(p.title)}</h3>
+      ${p.description?`<p class="desc" style="display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">${esc(p.description)}</p>`:''}
+      <div style="font-size:12px;color:#2b59c3;font-weight:600;margin:6px 0">🔍 Click card to view full details</div>
+      <div style="margin-top:10px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px">
+        <div><span class="tag ${p.status}">${p.status}</span>${p.team?` <small>by <b>${esc(p.team)}</b></small>`:''}</div>
+        ${can?`<button class="green" onclick="event.stopPropagation();confirmClaim('${p.id}')">Claim Problem</button>`:''}
+      </div>
+    </div>`;
+  }
+  $('#app').innerHTML=h+'</div>';
+  bindTools(draw);
+}
+
+function adminView(){
+  const open=S.status==='OPEN';
+  let h=banner()+`<div class="card"><b>Selection control</b><br>Opened: ${ist(S.openedAt)} · Closed: ${ist(S.closedAt)}<br><br>
+   ${open?'<button class="red" id="win">Close selection</button>':'<button class="green" id="win">Launch / Open selection</button>'}
+   <a href="/api/admin/export.csv"><button class="gray" type="button">Export CSV</button></a></div>`;
+  h+=counts()+`<div class="card"><b>Problem statements</b><br><br>`+toolbar()+`<div class="scroll"><table><tr><th>ID</th><th>Problem</th><th>Category</th><th>Difficulty</th><th>Status</th><th>Team</th><th>Allocated (IST)</th><th></th></tr>`;
+  for(const p of filtered())h+=`<tr><td>${esc(p.id)}</td><td><b style="cursor:pointer;color:#2b59c3" onclick="openProblemModal('${p.id}')">${esc(p.title)}</b>${p.description?`<br><small style="color:#5b667d">${esc(p.description.slice(0,100))}…</small>`:''}</td><td>${esc(p.category)}</td><td><span class="diff">${esc(p.difficulty||'')}</span></td><td><span class="tag ${p.status}">${p.status}</span></td><td>${esc(p.team||'')}</td><td>${p.at?ist(p.at):''}</td>
+   <td>${p.status==='TAKEN'?`<button class="red" data-rev="${p.id}">Revoke</button>`:`<button class="gray" onclick="openProblemModal('${p.id}')">View</button>`}</td></tr>`;
+  h+=`</table></div></div><div class="card"><b>Teams (${S.teams.filter(t=>t.loggedIn).length} logged in)</b><div class="scroll"><table><tr><th>Team</th><th>Session</th><th>Last seen</th><th>Last login</th><th>Failed logins</th><th>Problem</th><th></th></tr>`;
+  for(const t of S.teams)h+=`<tr><td>${esc(t.name)}</td><td>${t.loggedIn?'🟢 Logged in':'⚪ Logged out'}</td><td>${t.loggedIn?ist(t.lastSeen):''}</td><td>${ist(t.lastLogin)}</td><td>${t.failedLogins}</td><td>${esc(t.problemId||'')}</td>
+   <td>${t.loggedIn?`<button class="gray" data-kick="${t.id}">Force logout</button>`:''}</td></tr>`;
+  h+=`</table></div></div><div class="card"><b>Audit log (latest 200)</b><div class="scroll"><table><tr><th>Time (IST)</th><th>Who</th><th>Action</th><th>Detail</th></tr>`;
+  for(const a of S.audit)h+=`<tr><td>${ist(a.at)}</td><td>${esc(a.actor)}</td><td>${esc(a.action)}</td><td>${esc(a.detail)}</td></tr>`;
+  h+=`</table></div></div>`;
+  $('#app').innerHTML=h;
+  bindTools(draw);
+  $('#win').onclick=async()=>{
+    if(!confirm(open?'Close selection? No team will be able to claim until you open it again.':'Open selection now? Teams will be able to claim problems immediately.'))return;
+    const r=await call('/api/admin/window','POST',{open:!open});alert(r.ok?'Server accepted the change.':r.data.error);refresh();};
+  document.querySelectorAll('[data-rev]').forEach(b=>b.onclick=async()=>{
+    const id=b.dataset.rev,p=S.problems.find(x=>x.id===id);
+    if(!confirm(`Revoke ${id} from ${p.team}? The team can then choose again.`))return;
+    const reason=prompt('Reason (saved in audit log):','')||'';
+    const r=await call('/api/admin/revoke','POST',{problemId:id,reason});if(!r.ok)alert(r.data.error);refresh();});
+  document.querySelectorAll('[data-kick]').forEach(b=>b.onclick=async()=>{
+    if(!confirm('Force this team to log out?'))return;
+    const r=await call('/api/admin/kick','POST',{teamId:b.dataset.kick});if(!r.ok)alert(r.data.error);refresh();});
+}
+start().then(()=>{if(!S)loginView()});
+</script></body></html>
